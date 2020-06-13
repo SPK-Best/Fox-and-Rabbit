@@ -8,11 +8,6 @@ public class Rabbit extends Animal {
     }
 
     @Override
-    protected Animal breedOne(boolean randomAge, Field field, Location location) {
-        return AnimalFactory.createAnimal(AnimalType.RABBIT, field,location);
-    }
-
-    @Override
     protected int getMaxAge() {
         return 40;
     }
@@ -30,5 +25,10 @@ public class Rabbit extends Animal {
     @Override
     protected int getBreedingAge() {
         return 5;
+    }
+
+    @Override
+    protected int getRabbitFoodValue() {
+        return 9;
     }
 }

@@ -135,6 +135,8 @@ public abstract class Animal {
 
     protected abstract int getBreedingAge();
 
+    protected abstract int getRabbitFoodValue();
+
     /**
      * Generate a number representing the number of births, if it can breed.
      *
