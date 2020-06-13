@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Fox extends Animal {
-    // Characteristics shared by all foxes (class variables).
 
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.
@@ -23,22 +22,19 @@ public class Fox extends Animal {
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
-    public Fox(boolean randomAge, Field field, Location location) {
-        // Invoke the code constructor of super class (Need to call on the first line)
-        super(randomAge, field, location);
+    @Override
+    public void initialize(boolean randomAge, Field field, Location location) {
+        super.initialize(randomAge, field, location);
         foodLevel = RANDOM.nextInt(RABBIT_FOOD_VALUE);
     }
 
     @Override
     protected Location moveToNewLocation() {
-
         Location newLocation = findFood();
-
         if (newLocation == null) {
             // No food found - try to move to a free location.
             newLocation = field.freeAdjacentLocation(getLocation());
         }
-
         return newLocation;
     }
 
@@ -52,11 +48,6 @@ public class Fox extends Animal {
     public void act(List<Animal> newAnimals) {
         incrementAge();
         super.act(newAnimals);
-    }
-
-    @Override
-    protected Animal breedOne(boolean randomAge, Field field, Location location) {
-        return new Fox(randomAge,field,location);
     }
 
     /**

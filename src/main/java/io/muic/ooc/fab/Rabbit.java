@@ -1,22 +1,6 @@
 package io.muic.ooc.fab;
 
-import java.util.List;
-import java.util.Random;
-
 public class Rabbit extends Animal {
-
-    /**
-     * Create a new rabbit. A rabbit may be created with age zero (a new born)
-     * or with a random age.
-     *
-     * @param randomAge If true, the rabbit will have a random age.
-     * @param field The field currently occupied.
-     * @param location The location within the field.
-     */
-    public Rabbit(boolean randomAge, Field field, Location location) {
-        // Invoke the code constructor of super class (Need to call on the first line)
-        super(randomAge, field, location);
-    }
 
     @Override
     protected Location moveToNewLocation() {
@@ -25,9 +9,8 @@ public class Rabbit extends Animal {
 
     @Override
     protected Animal breedOne(boolean randomAge, Field field, Location location) {
-        return new Rabbit(randomAge,field,location);
+        return AnimalFactory.createAnimal(AnimalType.RABBIT, field,location);
     }
-
 
     @Override
     protected int getMaxAge() {
