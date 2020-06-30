@@ -1,10 +1,17 @@
 package io.muic.ooc.fab;
 
+import java.util.List;
+
 public class Rabbit extends Animal {
 
     @Override
     protected Location moveToNewLocation() {
         return field.freeAdjacentLocation(getLocation());
+    }
+
+    @Override
+    public void act(List<Animal> newAnimals) {
+        super.act(newAnimals);
     }
 
     @Override
@@ -25,10 +32,5 @@ public class Rabbit extends Animal {
     @Override
     protected int getBreedingAge() {
         return 5;
-    }
-
-    @Override
-    protected int getRabbitFoodValue() {
-        return 9;
     }
 }

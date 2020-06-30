@@ -48,7 +48,7 @@ public abstract class Animal {
     }
 
     protected Animal breedOne(boolean randomAge, Field field, Location location){
-        return AnimalFactory.createAnimal(getClass(),field,location);
+        return AnimalFactory.createAnimal(this.getClass(),field,location);
     }
 
     /**
@@ -134,8 +134,8 @@ public abstract class Animal {
     protected abstract int getMaxLitterSize();
 
     protected abstract int getBreedingAge();
-
-    protected abstract int getRabbitFoodValue();
+//
+//    protected abstract int getRabbitFoodValue();
 
     /**
      * Generate a number representing the number of births, if it can breed.
